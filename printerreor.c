@@ -17,8 +17,10 @@ void err(int error_code, ...)
 			fprintf(stderr, "L%d: usage: push integer\n", va_arg(arg, int));
 			break;
 		case 2:
+			idx = va_arg(arg, int);
+			opcode = va_arg(arg, char *);
 			fprintf(stderr, "L%d: unknown instruction %s\n",
-			va_arg(arg, int), va_arg(arg, char *));
+			idx, opcode);
 			break;
 		case 3:
 			fprintf(stderr, "Error: Can't open file %s\n", va_arg(arg, char *));
