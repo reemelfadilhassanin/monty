@@ -6,38 +6,42 @@
  *
  * Return: nothing
  */
-void command_handle(FILE *fptr, stack_t *stack) 
+void command_handle(FILE *fptr, stack_t *stack)
 {
-      int i; 
-      instruction_t opcodes[] = {
-    {"push", push},
-    {"pall", pall},
-	{"pint", pint},
-	{"pop", pop},
-	{"swap", swap},
-	{"nop", nop},
-    {NULL, NULL}};
-       size_t len = 0;
-    char *buffer = NULL;
-   
-    unsigned int line_num = 0;
-    char *opcode;
-    for (line_num = 1; getline(&buffer, &len, fptr) != -1; line_num++) {
-        opcode = strtok(buffer, " \n");
-        if (opcode) {
-            int flag = 0;
-            for (i = 0; opcodes[i].opcode; i++) {
-                if (strcmp(opcode, opcodes[i].opcode) == 0) {
-                    opcodes[i].f(&stack, line_num);
-                    flag = 1;
-                    break;
-                }
-            }
-            if (!flag) {
-                err(2, line_num, opcode);
-            }
-        }
-    }
- free_stack(stack);
-    free(buffer);
+	  int i, flag;
+	  size_t len = 0;
+	  char *buffer = NULL;
+	  unsigned int line_num = 0;
+	  char *opcode;
+
+	  instruction_t opcodes[] = {
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		{"pop", pop},
+		{"swap", swap},
+		{"nop", nop},
+		{NULL, NULL}};
+
+	for (line_num = 1; getline(&buffer, &len, fptr) != -1; line_num++)
+	{
+		opcode = strtok(buffer, " \n");
+		if (opcode)
+		{
+			flag = 0;
+			for (i = 0; opcodes[i].opcode; i++)
+			{
+				if (strcmp(opcode, opcodes[i].opcode) == 0)
+				{
+					opcodes[i].f(&stack, line_num);
+					flag = 1;
+					break;
+				}
+			}
+			if (!flag)
+				err(2, line_num, opcode);
+		}
+	}
+	free_stack(stack);
+	free(buffer);
 }

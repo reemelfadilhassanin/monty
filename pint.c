@@ -7,12 +7,9 @@
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-  
 stack_t *pint;
 	pint = *stack;
 	if (!pint)
-	{
 		err(4, line_number);
-	}
 	printf("%d\n", pint->n);
 }
