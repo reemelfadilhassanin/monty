@@ -17,13 +17,19 @@ void command_handle(FILE *fptr, stack_t *stack)
 	{"swap", swap},
 	{"nop", nop},
     {NULL, NULL}};
-       size_t len = 0;
+    size_t len = 0;
     char *buffer = NULL;
-   
     unsigned int line_num = 0;
     char *opcode;
+
     for (line_num = 1; getline(&buffer, &len, fptr) != -1; line_num++) {
-        opcode = strtok(buffer, " \n");
+          if (*buffer == '\n')
+        continue;
+    
+        opcode = strtok(buffer, " \t\n");
+        if (!opcode || *opcode == '#')
+        continue;
+        else
         if (opcode) {
             int flag = 0;
             for (i = 0; opcodes[i].opcode; i++) {

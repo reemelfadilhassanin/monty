@@ -1,9 +1,9 @@
 #include "monty.h"
 
 /**
- * nop - lol this does nothing
- * @stack: doesnt matter
- * @line_cnt : for nothing
+ * nop - function that does nothing
+ * @stack: douple pointer to head of stack
+ * @line_cnt : integer to line number of opcodes
  *
  * Return: NOTHING
  */

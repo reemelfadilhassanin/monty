@@ -10,7 +10,7 @@ void pint(stack_t **stack, unsigned int line_number)
   
 stack_t *pint;
 	pint = *stack;
-	if (!pint)
+	if (!pint || stack == NULL)
 	{
 		err(4, line_number);
 	}
