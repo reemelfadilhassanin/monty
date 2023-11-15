@@ -21,6 +21,7 @@ void command_handle(FILE *fptr, stack_t *stack)
 		{"pop", pop},
 		{"swap", swap},
 		{"nop", nop},
+		{"add", add},
 		{NULL, NULL}};
 
 	for (line_num = 1; getline(&buffer, &len, fptr) != -1; line_num++)
