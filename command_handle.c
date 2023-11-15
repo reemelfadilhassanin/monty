@@ -29,8 +29,9 @@ void command_handle(FILE *fptr, stack_t *stack)
     for (line_num = 1; getline(&buffer, &len, fptr) != -1; line_num++)
     {
         opcode = strtok(buffer, " \n\t");
-        if (*opcode == '#')
-		return;
+        if (opcode == NULL || opcode[0] == '#')
+			continue;
+            else
         if (opcode)
         {
             flag = 0;
