@@ -6,22 +6,18 @@
 */
 void add(stack_t **stack, unsigned int line_num)
 {
-	stack_t *cur, *next;
-	int i = 0, x, y;
+	int x, y;
 
-	for (i = 0; cur != NULL; i++)
-		cur = cur->next;
-	if (i < 2)
+	if ((*stack) == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't add, stack too short\n", line_num);
 		exit(EXIT_FAILURE);
 	}
-	cur = *stack;
-	next = (*stack)->next;
-	x = cur->n;
-	y = next->n;
 
-	(*stack) = next;
-	next->prev = NULL;
-	next->n = x + y;
+	x = (*stack)->n;
+	y = (*stack)->next->n;
+
+	(*stack)->next->n = x + y;
+
+	pop(stack, line_num);
 }
