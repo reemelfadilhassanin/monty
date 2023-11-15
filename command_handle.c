@@ -38,6 +38,6 @@ void command_handle(FILE *fptr, stack_t *stack)
             }
         }
     }
-
+ free_stack(stack);
     free(buffer);
 }

@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
     }
    command_handle(fptr, stack);
  
+
     fclose(fptr);
     return 0;
 }
