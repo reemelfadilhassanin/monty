@@ -6,18 +6,24 @@
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp = NULL;
-	int value;
+	stack_t *tmp;
+	int idx = 0, value;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	tmp = *stack;
+	while (tmp)
 	{
-		err(6, line_number);
-		return;
+		tmp = tmp->next;
+		idx++;
+	}
+	if (idx < 2)
+	{
+	fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+free_stack(*stack);
+exit(EXIT_FAILURE);
 	}
 	tmp = *stack;
 	value = tmp->n;
 	tmp->n = value;
-
 	tmp->n = tmp->next->n;
 	tmp->next->n = value;
 }
