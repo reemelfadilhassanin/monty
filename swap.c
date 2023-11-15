@@ -6,15 +6,17 @@
  */
 void swap(stack_t **stack, unsigned int line_number)
 {
-	int tmp;
+	stack_t *tmp = NULL;
+	int value;
 	
-
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
 		err(6, line_number);
 		return;
 	}
-	tmp = (*stack)->n;
-	(*stack)->n = (*stack)->next->n;
-	(*stack)->next->n = tmp; 
+	tmp = *stack;
+	value = tmp->n;
+
+	tmp->n = tmp->next->n;
+	tmp->next->n = value;
 }
