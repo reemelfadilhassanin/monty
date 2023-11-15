@@ -23,6 +23,7 @@ void command_handle(FILE *fptr, stack_t *stack)
         {"swap", swap},
         {"nop", nop},
         {"add", add},
+         {"sub", sub},
         {NULL, NULL}};
 
     for (line_num = 1; getline(&buffer, &len, fptr) != -1; line_num++)
