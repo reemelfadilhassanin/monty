@@ -12,7 +12,7 @@ stack_t *tmp;
 if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 {
 	err(7, line_number);
-	
+
 	}
 tmp = *stack;
 sub = (tmp->next->n) - (tmp->n);

@@ -40,16 +40,18 @@ typedef struct instruction_s
 
 void  command_handle(FILE *fptr, stack_t *stack);
 int isInteger(char *str);
+void free_stack(stack_t *head);
+void err(int error_code, ...);
+
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-void err(int error_code, ...);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_cnt);
 void swap(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_cnt);
-void free_stack(stack_t *head);
-void add (stack_t **stack, unsigned int line_num);
+void add(stack_t **stack, unsigned int line_num);
 void sub(stack_t **stack, unsigned int line_number);
+void divv(stack_t **stack, unsigned int line_num);
 
 
 #endif /* monty.h */
