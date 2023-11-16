@@ -21,7 +21,7 @@ void mod(stack_t **stack, unsigned int line_num)
 		fprintf(stderr, "L%d: division by zero\n", line_num);
 		exit(EXIT_FAILURE);
 	}
-	(*stack)->next->n = y / x;
+	(*stack)->next->n = y % x;
 	pop(stack, line_num);
 
 }
