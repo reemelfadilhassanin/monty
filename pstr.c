@@ -17,8 +17,11 @@ void pstr(stack_t **stack, unsigned int line_num)
 	}
 	while (cur)
 	{
-		if ((*stack)->n > 127 || (*stack)->n <= 0)
-			break;
+		if (cur->n > 127 || cur->n <= 0)
+		{
+			printf("\n");
+			return;
+		}
 		putchar(cur->n);
 		cur = cur->next;
 	}
