@@ -37,10 +37,6 @@ void err(int error_code, ...)
 			opcode = va_arg(arg, char *);
 			fprintf(stderr, "L%d: can't %s, stack too short\n", idx, opcode);
 			break;
-			case 7:
-			fprintf(stderr, "L%u: can't sub, stack too short\n",
-			va_arg(arg, int));
-			break;
 		default:
 			fprintf(stderr, "L%d: unspecified error\n", va_arg(arg, int));
 			break;
