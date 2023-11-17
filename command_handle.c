@@ -17,10 +17,11 @@ void command_handle(FILE *fptr, stack_t *stack)
 
 	instruction_t opcodes[] = {
 		{"push", push}, {"pall", pall}, {"pint", pint},
-		{"pop", pop}, {"swap", swap}, {"nop", nop}, {"rotl", rotl},
-		{"add", add}, {"sub", sub}, {"div", divv}, {"mul", mul},
-		{"mod", mod}, {"pchar", pchar},
-		{"pstr", pstr}, {"rotr", rotr}, {NULL, NULL}};
+		{"pop", pop}, {"swap", swap}, {"nop", nop},
+		 {"rotl", rotl}, {"add", add}, {"sub", sub},
+		  {"div", divv}, {"mul", mul},
+		   {"mod", mod}, {"pchar", pchar},
+		 {"pstr", pstr}, {"rotr", rotr}, {NULL, NULL}};
 	for (line_num = 1; getline(&buffer, &len, fptr) != -1; line_num++)
 	{
 		opcode = strtok(buffer, " \n\t");
